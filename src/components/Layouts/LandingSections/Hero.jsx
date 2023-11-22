@@ -14,8 +14,8 @@ const Hero = () => {
 
     return(
         <section className="flex flex-col justify-center mt-4 w-full mb-10">
-            <div className="flex lg:justify-center lg:items-center gap-5 flex-wrap">
-            <div className="w-[530px] ">
+            <div className="flex lg:justify-center lg:items-center flex-wrap">
+            <div className="w-[530px] mr-12">
             <img src={BannerImage} alt="banner image" className=""/>
             </div>
             <div className=" flex-col w-[540px]  text-center lg:text-left justify-center lg:justify-start">

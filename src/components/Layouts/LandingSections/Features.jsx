@@ -17,9 +17,9 @@ const Features = () => {
             <div className=" text-center">
             <MainTitle title="How You Get Better"/>
             </div>
-            <div className="flex justify-evenly mt-12 ">
+            <div className="flex justify-center mt-12 gap-16">
             <div className="flex">
-            <div className="">
+            <div className="mr-12">
             <img src={DrugsImage} alt="banner image" className="h-[600px]"/>
             </div>
             <div className=" flex flex-col gap-3 px-12 justify-center items-center">
