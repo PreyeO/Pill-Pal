@@ -27,7 +27,7 @@ const Features = () => {
             <MainTitle title="Easy Monitoring, Better Health"/>
             <SubTitle title="Elevate your health journey effortlessly with PillPal’s easy tracking, paving the way for a healthier and more vibrant life ahead."/>
             </div>
-            <div className="">
+            <div className=" mt-8 mr-16">
             <button type="submit"
       className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] " >Get Started</button>
             
