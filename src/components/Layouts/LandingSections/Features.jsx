@@ -1,8 +1,8 @@
-import HomeCTA from "../../UI/Buttons/HomeCTA"
+
 import MainTitle from "../../UI/Titles/MainTitle"
 import SubTitle from "../../UI/Titles/SubTitle" 
 import DrugsImage  from "../../../assets/DrugsImage.svg" 
-import Patient  from "../../../assets/Patient.png" 
+
 
 
 
