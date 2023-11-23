@@ -1,10 +1,12 @@
+import Patient from "../../components/Layouts/DashBoard/Patient"
+
 const UserDashboard =() => {
 
 
 
     return(
-        <main>
-            Hello User Dashboard
+        <main className=" font-OpenSans">
+         <Patient />
         </main>
     )
 }

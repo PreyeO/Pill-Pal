@@ -5,7 +5,7 @@ const ProviderDashboard =() => {
 
 
     return(
-        <main>
+      <main className=" font-OpenSans">
           <Providers />
         </main>
     )

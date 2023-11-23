@@ -3,7 +3,7 @@ const Management =() => {
 
 
     return(
-        <main>
+        <main className=" font-OpenSans">
             Hello Management
         </main>
     )

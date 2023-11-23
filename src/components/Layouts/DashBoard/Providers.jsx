@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 
 
-const Dashboard = () => {
+const Provider = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleDateChange = (date) => {
@@ -67,4 +67,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Provider;
