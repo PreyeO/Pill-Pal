@@ -31,15 +31,17 @@ const Dashboard = () => {
               <Table />
               <div className='flex-col text-base'>
               <Calendar onChange={handleDateChange} value={selectedDate} className="rounded-md border-none"/>
-              <div className='w-full h-[150px] bg-white  text-sm mt-8 '>
-                <div className='flex pt-8 '>
+              <div className='w-full h-[150px] bg-white  text-sm mt-8 flex flex-col  '>
+                <div className='flex pt-8 justify-around '>
               <p className="text-[#1E1E1E] font-semibold">
                 Appointments:
               </p>
               <div className="border rounded-md p-2">
                 {selectedDate.toDateString()}
               </div>
+             
               </div>
+              <p className='w-[130px] text-center mx-auto'>You dont have any appointment today </p>
               </div>
               </div>
               </div>
