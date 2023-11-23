@@ -17,7 +17,7 @@ const NavBar = () => {
             <ul className="flex gap-5 font-bold cursor-pointer">
                 <li>For Patients</li>
                 <li>For Providers</li>
-                <li>About us</li> 
+               
             </ul>
             <div className="cursor-pointer">
                 <AccountBtn label="Account"/>
