@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Checkbox from "../Inputs/CheckBox";
 import TextInput from "../Inputs/TextInput";
 
@@ -16,9 +17,11 @@ const SignupForm = () => {
       <div className="md:pt-4 pt-2">
       <Checkbox label="Agree to Terms and Policy"/>
       </div>
+      <Link to="/providerdashboard">
       <div className="mt-4">
       <button type="submit" className="bg-[#55AAFF] h-[55px] w-full rounded-md">Sign Up </button>
       </div>
+      </Link>
       </form>
     );
   };
