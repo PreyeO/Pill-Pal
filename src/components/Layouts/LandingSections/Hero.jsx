@@ -10,7 +10,7 @@ const Hero = () => {
   return (
     <section className="flex flex-col justify-center mt-12 lg:mt-4 w-full mb-10">
       <div className="flex lg:justify-center lg:items-center flex-wrap">
-        <div className="w-[530px] lg:mr-12 order-2 flex-shrink-0 lg:order-[-2] mx-auto lg:mx-0 mt-[6rem] lg:mt-0 ">
+        <div className="w-[300px] md:w-[530px] lg:mr-12 order-2 flex-shrink-0 lg:order-[-2] mx-auto lg:mx-0 mt-[6rem] lg:mt-0 ">
           <img src={BannerImage} alt="banner image" className="" />
         </div>
         <div className=" flex flex-col md:w-[540px] w-[300px] mx-auto lg:mx-0 text-center lg:text-left justify-center
