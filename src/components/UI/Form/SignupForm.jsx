@@ -28,7 +28,11 @@ const SignupForm = () => {
 
       if (response.ok) {
         toast.success("Registered Successfully");
-        navigate("/login");
+
+        // Delay the navigation slightly after the toast is displayed
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000); // You can adjust the delay time as needed
       } else {
         const errorData = await response.json();
         toast.error(`Failed: ${errorData.message}`);
@@ -39,17 +43,16 @@ const SignupForm = () => {
     }
   };
 
-
     return (
       <form className="flex flex-col md:gap-5 gap-3" onSubmit={handleSubmitBtn}>
       <TextInput placeholder="Enter your first name" type="text" 
-      label="Name" vlaue={name} onChange={e=> setName(e.target.value)} required/>
+      label="Name" value={name} onChange={e=> setName(e.target.value)} required/>
       <TextInput placeholder="Enter your email" 
-      type="email" label="Email" vlaue={email} onChange={e=> setEmail(e.target.value)} required/>
+      type="email" label="Email" value={email} onChange={e=> setEmail(e.target.value)} required/>
       <TextInput placeholder="Use at leat 10 character and number" 
-      type="password" label="Create password" vlaue={password} onChange={e=> setPassword(e.target.value)} required/>
+      type="password" label="Create password" value={password} onChange={e=> setPassword(e.target.value)} required/>
       <TextInput placeholder="password" type="password" 
-      label="Confirm password" vlaue={password_confirmation} onChange={e=> setPassword_confirmation(e.target.value)} required/>
+      label="Confirm password" value={password_confirmation} onChange={e=> setPassword_confirmation(e.target.value)} required/>
       <div className="md:pt-4 pt-2">
       <Checkbox label="Agree to Terms and Policy"/>
       </div>

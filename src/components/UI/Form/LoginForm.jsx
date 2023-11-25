@@ -23,15 +23,19 @@ const LoginForm = () => {
 
       if (response.ok) {
         const { token, user } = await response.json();
-       
+
         localStorage.setItem("userToken", token);
         localStorage.setItem("userName", user.name);
+
         toast.success('Login successfully');
-        navigate("/userdashboard");
+        
+      
+        setTimeout(() => {
+          navigate("/userdashboard");
+        }, 1000); 
       } else {
         const errorData = await response.json();
         toast.error(`Failed: ${errorData.message}`);
-       
       }
     } catch (err) {
       console.error(err);

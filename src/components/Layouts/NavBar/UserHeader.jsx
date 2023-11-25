@@ -1,7 +1,7 @@
 
 import PatientPhoto from '../../../assets/userphoto.png';
 import { useState, useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+
 
 const UserHeader = () => {
   const [greeting, setGreeting] = useState('');
@@ -53,8 +53,7 @@ const UserHeader = () => {
           <p className="">{formattedDate}</p>
         </div>
       </div>
-     
-      <ToastContainer />
+   
     </div>
   );
 };

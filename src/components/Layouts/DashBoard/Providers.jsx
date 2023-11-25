@@ -1,5 +1,5 @@
 import Calendar from 'react-calendar';
-import SideBar from '../SideBar/SideBar';
+import SideBar2 from '../SideBar/SideBar2';
 import Header from '../NavBar/Header';
 import Table from '../../UI/Table/Table';
 import SearchBar from '../../UI/Inputs/SearchBar';
@@ -18,7 +18,7 @@ const Provider = () => {
   return (
     <section className="flex-col justify-center items-center min-h-section text-black bg-[#E8E8E8] ">
       <div className="flex">
-        <SideBar />
+        <SideBar2 />
         <div className="text-2xl flex-col mx-auto">
           <div className=" " >
           <Header />

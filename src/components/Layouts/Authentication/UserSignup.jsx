@@ -2,6 +2,7 @@ import SignupForm from "../../UI/Form/SignupForm";
 import AuthImage from "../../../assets/Polygon.png"
 import SubTitle from "../../UI/Titles/SubTitle";
 import MainTitle from "../../UI/Titles/MainTitle";
+import { Link } from "react-router-dom";
 
 
 const UserSignup = () => {
@@ -20,7 +21,8 @@ const UserSignup = () => {
       <SignupForm />
       </div>
       <div className="pt-2 md:pt4 text-center pb-2">
-           <h5>Have an account?<span className="text-[#55AAFF] cursor-pointer"> Login </span></h5>
+           <h5>Have an account?<span className="text-[#55AAFF] cursor-pointer"> 
+           <Link to="/login"> Login</Link></span></h5>
            </div>
       </div>
       </div>

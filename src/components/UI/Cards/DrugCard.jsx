@@ -29,7 +29,7 @@ const DrugCard = ({DrugName, DrugTime, Dosage, Status, timeStatus, reminder }) =
         </div>
         <div className="lg:flex lg:gap-3 flex-col hidden ">
         <span className="bg-[#55AAFF] p-1 rounded-md text-center h-[28px] text-sm">{Status}</span>
-        <span className="rounded-full bg-[#E8E8E8] h-[30px]"><img src={Dots} alt="drugs" className=""/> </span> 
+        <span className="rounded-full bg-[#E8E8E8] h-[30px] mx-auto"><img src={Dots} alt="drugs" className="w-[30px] h-[30px]"/> </span> 
         </div>
         </div>
           
