@@ -7,6 +7,7 @@ import Management from "./Pages/ProviderAccount/Management";
 import 'react-calendar/dist/Calendar.css';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from "./Pages/Login";
+import EmptyUser from "./Pages/UserAccount/EmptyUser";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/providerdashboard" element={<ProviderDashboard />} />
           <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/emptyuser" element={<EmptyUser/>} />
           <Route path="/management" element={<Management />} />
           </Routes>
           </BrowserRouter>

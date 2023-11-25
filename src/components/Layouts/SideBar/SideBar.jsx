@@ -16,7 +16,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div className="bg-white w-[203px] h-auto pt-7 px-3 font-medium">
+    <div className="bg-white w-[203px] h-auto pt-7 px-3 font-medium hidden lg:block">
       <div className="flex justify-center gap-2 mt-8">
         <img src={Logo} alt="logo" className="w-[48px] h-[48px]" />
           <h2c className="pt-3">Pill<span className='text-[#55AAFF]'>Pal</span></h2c>

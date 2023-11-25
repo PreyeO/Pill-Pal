@@ -12,9 +12,9 @@ const VitalsCard = ({label, measurement, rate, src }) => {
                
     <div className="bg-white h-[100px] w-[180px] flex flex-col px-5 gap-2  justify-center items-center p-7">
             
-      <div className="flex">
+      <div className="flex gap-2">
     
-        <img src={src} alt="drugs" />
+        <img src={src} alt="drugs" className="w-[30px] h-[30px]"/>
    
         <div className="flex-col">
         <h3>{label}</h3>
