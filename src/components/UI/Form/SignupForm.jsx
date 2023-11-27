@@ -49,7 +49,7 @@ const SignupForm = () => {
       label="Name" value={name} onChange={e=> setName(e.target.value)} required/>
       <TextInput placeholder="Enter your email" 
       type="email" label="Email" value={email} onChange={e=> setEmail(e.target.value)} required/>
-      <TextInput placeholder="Use at leat 10 character and number" 
+      <TextInput placeholder="Enter your password" 
       type="password" label="Create password" value={password} onChange={e=> setPassword(e.target.value)} required/>
       <TextInput placeholder="password" type="password" 
       label="Confirm password" value={password_confirmation} onChange={e=> setPassword_confirmation(e.target.value)} required/>

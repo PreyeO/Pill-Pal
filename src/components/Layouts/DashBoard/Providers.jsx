@@ -3,17 +3,53 @@ import SideBar2 from '../SideBar/SideBar2';
 import Header from '../NavBar/Header';
 import Table from '../../UI/Table/Table';
 import SearchBar from '../../UI/Inputs/SearchBar';
-import { useState } from 'react';
+
+import { useEffect, useState } from "react";
 
 
 
 
 const Provider = () => {
+
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
   }
+
+  const [schedule, setSchedule] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        const token = localStorage.getItem('userToken');
+        console.log('Token:', token); 
+
+        const response = await fetch(
+          "https://pillpal-api.pouletmedia.ng/api/schedule", {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Data:', data); 
+          setSchedule(data);
+        } else {
+          const errorData = await response.json();
+          console.error('Error Data:', errorData);  
+          setError(errorData);
+        }
+      } catch (error) {
+        console.error("Error fetching schedule:", error);
+        setError({ error: 1, message: "Failed to fetch schedule" });
+      }
+    };
+
+    fetchSchedule();
+  }, []);
 
   return (
     <section className="flex-col justify-center items-center min-h-section text-black bg-[#E8E8E8] ">

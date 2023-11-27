@@ -54,7 +54,7 @@ const LoginForm = () => {
         required
       />
       <TextInput
-        placeholder="Use at least 10 characters and numbers"
+        placeholder="Enter your password"
         type="password"
         label="Password"
         value={password}

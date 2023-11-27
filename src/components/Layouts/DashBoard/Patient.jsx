@@ -1,4 +1,4 @@
-
+// import {useEffect, useState} from "react"
 import SideBar from '../SideBar/SideBar';
 import UserHeader from '../NavBar/UserHeader';
 import DrugCard from '../../UI/Cards/DrugCard';
@@ -16,13 +16,84 @@ import doctor from "../../../assets/doc.png"
 
 import Doctor from "../../../assets/docc.png"
 import dots from "../../../assets/dots-vertical.png"
-import { Link } from 'react-router-dom';
+import { Link, useParams  } from 'react-router-dom';
+import MedSchedule from "./MedSchedule";
+
+import { useEffect, useState } from "react";
 
 
 
 
 
 const Patient = () => {
+  
+  const [schedule, setSchedule] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      try {
+        const token = localStorage.getItem('userToken');
+        console.log('Token:', token); 
+
+        const response = await fetch(
+          "https://pillpal-api.pouletmedia.ng/api/mySchedule", {
+          method: "GET",
+          headers: {
+            // 'content-type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+            // 'Authorization': `Bearer ${localStorage.getItem('userToken')}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Data:', data); 
+          setSchedule(data);
+        } else {
+          const errorData = await response.json();
+          console.error('Error Data:', errorData);  
+          setError(errorData);
+        }
+      } catch (error) {
+        console.error("Error fetching schedule:", error);
+        setError({ error: 1, message: "Failed to fetch schedule" });
+      }
+    };
+
+    fetchSchedule();
+  }, []);
+
+  // Function to categorize schedules based on the time of the day
+  const categorizeSchedules = () => {
+    const categorized = {
+      morning: [],
+      afternoon: [],
+      evening: [],
+    };
+
+    schedule.forEach((schedule) => {
+      const time = new Date(schedule.medication_time).getHours();
+
+      if (time >= 5 && time < 12) {
+        categorized.morning.push(schedule);
+      } else if (time >= 12 && time < 18) {
+        categorized.afternoon.push(schedule);
+      } else {
+        categorized.evening.push(schedule);
+      }
+    });
+
+    return categorized;
+  };
+
+  const categorizedSchedules = categorizeSchedules();
+
+
+
+
+
+
 
 
   return (
@@ -33,60 +104,85 @@ const Patient = () => {
         <div className=''>
           <UserHeader />
           </div>
-        
-         
+       
+   
+
          
           <div className=' justify-evenly max-auto mt-12 hidden lg:flex mx-2'>
-        
-          <div className='flex flex-wrap gap-3 bg-[#FCFCFC] mx-3 w-full'>
+          <div className="flex flex-wrap justify-evenly bg-[#FCFCFC] mx-3 w-full">
+      <div className="flex flex-col gap-4">
+        <h1 className="text-center pt-3">Morning</h1>
+        {categorizedSchedules.morning.length > 0 ? (
+          <div className="flex mx-2">
+            <div className="h-[136px] bg-[#4EFF8A] w-[7px]"></div>
+            {categorizedSchedules.morning.map((schedule, index) => (
+              <DrugCard
+                key={index}
+                DrugName={schedule.medication_name}
+                unit={schedule.unit}
+                DrugTime={schedule.medication_time}
+                Dosage={schedule.dosage}
+                Status="Taken"
+                start={schedule.start_date}
+                end={schedule.end_date}
+                cycle={schedule.medication_cycle}
+              />
+            ))}
+          </div>
+        ) : (
+          <p>No schedule.</p>
+        )}
+      </div>
 
-          
-            <div className='flex flex-col gap-4'>
-            <h1 className='text-center pt-3'>Morning</h1>
-              <div className='flex mx-2'>
-           
-           <div className="h-[136px] bg-[#4EFF8A] w-[7px]"></div>
-           <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="8:00 AM" Dosage="4 pill" Status="Taken" />
-           </div>
-           <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#4EFF8A] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="12:00 AM" Dosage="2 pill" Status="Taken" />
+      <div className="flex flex-col gap-4">
+        <h1 className="text-center pt-3">Afternoon</h1>
+        {categorizedSchedules.afternoon.length > 0 ? (
+          <div className="flex mx-2">
+            <div className="h-auto bg-[#1A1A1A] w-[7px]"></div>
+            {categorizedSchedules.afternoon.map((schedule, index) => (
+              <DrugCard
+                key={index}
+                DrugName={schedule.medication_name}
+                unit={schedule.unit}
+                DrugTime={schedule.medication_time}
+                Dosage={schedule.dosage}
+                Status="Taken"
+                start={schedule.start_date}
+                end={schedule.end_date}
+                cycle={schedule.medication_cycle}
+              />
+            ))}
           </div>
-          <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#4EFF8A] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="9:00 AM" Dosage="1 pill" Status="Taken" />
-          </div>
-            </div>
+        ) : (
+          <p>No schedule.</p>
+        )}
+      </div>
 
-            <div className='flex flex-col gap-4'>
-            <h1 className='text-center pt-3'>Afternoon</h1>
-              <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#1A1A1A] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="8:00 AM" Dosage="1 pill" Status="Taken" />
+      <div className="flex flex-col gap-4">
+        <h1 className="text-center pt-3">Evening</h1>
+        {categorizedSchedules.evening.length > 0 ? (
+          <div className="flex mx-2">
+            <div className="h-[136px] bg-[#FF5B4C] w-[7px]"></div>
+            {categorizedSchedules.evening.map((schedule, index) => (
+              <DrugCard
+                key={index}
+                DrugName={schedule.medication_name}
+                unit={schedule.unit}
+                DrugTime={schedule.medication_time}
+                Dosage={schedule.dosage}
+                Status="Taken"
+                start={schedule.start_date}
+                end={schedule.end_date}
+                cycle={schedule.medication_cycle}
+              />
+            ))}
           </div>
-          <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#1A1A1A] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="8:00 AM" Dosage="7 pill" Status="Taken" />
-          </div>
-          <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#1A1A1A] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="2:00 AM" Dosage="2 pill" Status="Taken" />
-          </div>
-            </div>
-
-            <div className='flex flex-col gap-4'>
-              <h1 className='text-center pt-3'>Evening</h1>
-              <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#FF5B4C] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="11:00 AM" Dosage="3 pill" Status="Taken"/>
-          </div>
-          <div className='flex mx-2'>
-          <div className="h-[136px] bg-[#FF5B4C] w-[7px]"></div>
-          <DrugCard DrugName="LiverCureX (20Mg)" DrugTime="6:00 AM" Dosage="2 pill" Status="Taken" />
-          </div>
-            </div>
+        ) : (
+          <p>No schedule.</p>
+        )}
+      </div>
+    </div>
          
-            </div>
              {/* <div className='flex'>
             <div className='flex-col'>
             <h1>Medications</h1>
@@ -168,7 +264,7 @@ const Patient = () => {
             </div>
        
             
-            <div className='flex justify-evenly  text-sm bg-[#FCFCFC] h-[150px] mt-3 pt-5 shadow-xl mx-2'>
+            <div className='flex justify-evenly  text-sm bg-[#FCFCFC] h-[150px] mt-3 pt-5 shadow-xl mx-2 text-[10px]'>
               <div className='flex-col'>
             <img src={heart} alt="hospital building" />
             <h6>Heart rate</h6>
@@ -211,7 +307,7 @@ const Patient = () => {
             </div>
             <div className='flex flex-col w-full bg-white h-[220px] px-4 pt-6 shadow-xl'>
               <div className=''>
-              <input type="date" className='bg-black h-7 text-white rounded-full text-center' />
+              <input type="date" className='bg-black h-7 text-white rounded-full text-center text-white' />
               </div>
               <div className='flex flex-col text-sm mx-auto gap-3 pt-3'>
                 <div className='flex gap-3'>
@@ -227,13 +323,13 @@ const Patient = () => {
                 </div>
                 <div className='flex gap-3'>
                   <img src={doctor} alt="hospital building" />
-                  <p>Checkup at Saint. Patricks Hospital</p>
+                  <p>Checkup with DR. Tunde Awolowo</p>
                   <p>12pm</p>
             
                 </div>
                 <div className='flex gap-3'>
                   <img src={Doctor} alt="hospital building" />
-                  <p>Checkup at Saint. Patricks Hospital</p>
+                  <p>Checkup with DR. Mathew Okoronkwo</p>
                   <p>12pm</p>
                
                 </div>
