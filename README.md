@@ -26,5 +26,5 @@ It caters for two kinds of users which are patients and providers.
 4. React Toastify
 5. Rest API
 
-## SEE LINK TO SITE  
+## SEE LINK TO SITE  https://pill-pal-five.vercel.app/
 
