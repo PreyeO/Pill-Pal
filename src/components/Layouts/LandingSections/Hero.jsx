@@ -26,22 +26,15 @@ const Hero = () => {
           </div>
           <div className="flex flex-wrap gap-8 lg:gap-5 mt-10 justify-center lg:justify-start">
             <Link to="/signup">
-              <HomeCTA
-                label="Provider"
-                background="#55AAFF"
-                color="#1A1A1A"
-                src={Provider}
-                type="submit"
-              />
+              
+               <button className=" hover:bg-black hover:text-white rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center text-[#1A1A1A] bg-[#55AAFF]">
+               Provider
+              </button>
             </Link>
-            <Link to="/signup">
-              <HomeCTA
-                label="Patient"
-                background="#1A1A1A"
-                color="#FCFCFC"
-                src={Patient}
-                type="submit"
-              />
+            <Link to="/signup" className="">
+              <button className=" hover:bg-[#55AAFF] hover:text-white rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center text-white bg-[#1A1A1A]">
+                Patient
+              </button>
             </Link>
           </div>
         </div>

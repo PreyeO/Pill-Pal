@@ -24,10 +24,11 @@ const Features = () => {
               <Link to="#hero" smooth>
                 <button
                   type="submit"
-                  className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] "
+                  className=" hover:bg-black hover:text-white  rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] "
                 >
                   Get Started
                 </button>
+               
               </Link>
             </div>
           </div>

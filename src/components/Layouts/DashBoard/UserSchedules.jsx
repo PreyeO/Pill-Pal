@@ -75,7 +75,7 @@ const UserSchedules = () => {
   return (
     <div className=" bg-[#FCFCFC] mx-3 w-full flex-col">
       <div className="flex flex-col gap-4">
-        <h1 className="text-center pt-3">Morning</h1>
+        <h1 className="pt-3">Morning</h1>
 
         {categorizedSchedules.morning.length > 0 ? (
           <div className="flex-col mx-2 ">
@@ -99,7 +99,7 @@ const UserSchedules = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1 className="text-center pt-3">Afternoon</h1>
+        <h1 className=" pt-3">Afternoon</h1>
         {categorizedSchedules.afternoon.length > 0 ? (
           <div className="flex-col mx-2">
             {categorizedSchedules.afternoon.map((schedule, index) => (
@@ -122,7 +122,7 @@ const UserSchedules = () => {
       </div>
 
       <div className="flex flex-col gap-4">
-        <h1 className="text-center pt-3">Evening</h1>
+        <h1 className="pt-3">Evening</h1>
         {categorizedSchedules.evening.length > 0 ? (
           <div className="flex-col mx-2">
             {categorizedSchedules.evening.map((schedule, index) => (

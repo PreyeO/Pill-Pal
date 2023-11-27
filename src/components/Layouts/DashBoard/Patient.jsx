@@ -111,11 +111,11 @@ const Patient = () => {
       <div className="bg-[#FCFCFC] lg:hidden block">
         <div className="flex justify-between pt-6 px-4 font-bold">
           <h3 className="text-base">Medication</h3>
-          <Link to="/fullrecordlist">
-            <h3 className="text-sm">View ALL</h3>
+          <Link to="/medinfo">
+            <button className="text-sm bg-blue-400 p-2 text-white rounded-md">Create Schedule</button>
           </Link>
         </div>
-        <div className=" shadow-xl mx-2">
+        <div className=" shadow-xl mx-2 mt-3">
           <UserSchedules fullList={true} />
         </div>
         <div className="flex justify-between pt-6 px-4 font-bold">
