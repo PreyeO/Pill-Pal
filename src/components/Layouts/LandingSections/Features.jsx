@@ -1,6 +1,7 @@
 import MainTitle from "../../UI/Titles/MainTitle";
 import SubTitle from "../../UI/Titles/SubTitle";
 import DrugsImage from "../../../assets/DrugsImage.svg";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Features = () => {
   return (
@@ -18,13 +19,16 @@ const Features = () => {
               <MainTitle title="Easy Monitoring, Better Health" />
               <SubTitle title="Elevate your health journey effortlessly with PillPal’s easy tracking, paving the way for a healthier and more vibrant life ahead." />
             </div>
+
             <div className=" mt-8 mr-16 lg:flex hidden">
-              <button
-                type="submit"
-                className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] "
-              >
-                Get Started
-              </button>
+              <Link to="#hero" smooth>
+                <button
+                  type="submit"
+                  className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] "
+                >
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -41,13 +45,13 @@ const Features = () => {
           </div>
         </div>
         <div className="  lg:hidden flex">
-              <button
-                type="submit"
-                className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] "
-              >
-                Get Started
-              </button>
-            </div>
+          <button
+            type="submit"
+            className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center bg-[#55AAFF] text-[#1A1A1A] "
+          >
+            Get Started
+          </button>
+        </div>
       </div>
     </section>
   );

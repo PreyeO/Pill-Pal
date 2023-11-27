@@ -1,12 +1,10 @@
 import MainTitle from "../../UI/Titles/MainTitle";
 import SubTitle from "../../UI/Titles/SubTitle";
-import GooglePlay from "../../../assets/google-play.png";
-import DownloadBtn from "../../UI/Buttons/DownloadBtn";
-import Apple from "../../../assets/apple.png";
 import Phone from "../../../assets/Phone.png";
 import Facebook from "../../../assets/facebook.png";
 import Twitter from "../../../assets/twitter.png";
 import Linkedin from "../../../assets/linkedin.png";
+import HomeCTA from "../../UI/Buttons/HomeCTA";
 
 const Footer = () => {
   return (
@@ -14,27 +12,13 @@ const Footer = () => {
       <div className="flex justify-evenly ">
         <div className="flex flex-col gap-5 lg:gap-10 mt-[5rem] justify-center lg:justify-start lg:items-start items-center lg:text-left text-center">
           <div className="md:w-[600px] w-[300px]">
-            <MainTitle title="Download Our App for Simplified Medication Management Now!" />
+            <MainTitle title="Embark on a journey with PillPal—Shaping Tomorrow, Today!" />
           </div>
           <div className="md:w-[500px] w-[300px]">
-            <SubTitle
-              title="Seamless health management at your 
-          fingertips. Download our app now to simplify 
-          medication routines, making your wellness journey 
-          more accessible and stress-free."
-            />
+            <SubTitle title="Get ready for a game-changing experience! Don't miss out on the excitement—sign up to be part of our exclusive launch and be the first to explore the future." />
           </div>
-          <div className="flex flex-wrap gap-5 mt-10 justify-center lg:justify-start mb-3 lg:mb-0">
-            <DownloadBtn
-              label="Download on Google Play"
-              src={GooglePlay}
-              type="submit"
-            />
-            <DownloadBtn
-              label="Download on Play Store"
-              src={Apple}
-              type="submit"
-            />
+          <div className="flex flex-wrap gap-5 mt-10 justify-center lg:justify-start mb-3 lg:mb-0 text-white">
+            <HomeCTA label="Get early access" background="black" />
           </div>
         </div>
 
@@ -94,7 +78,9 @@ const Footer = () => {
           </div>
         </div>
         <div className=" bg-[#B9B7B7] w-[712px] p-[1px] mt-[5rem] ml-16 hidden md:block"></div>
-        <p className="text-white md:text-[14px] text-[10px] md:pt-14 pt-8 lg:pl-[7rem] text-center">&copy 2023 PillPal. All Rights Reserved</p>
+        <p className="text-white md:text-[14px] text-[10px] md:pt-14 pt-8 lg:pl-[7rem] text-center">
+          &copy 2023 PillPal. All Rights Reserved
+        </p>
       </div>
     </section>
   );

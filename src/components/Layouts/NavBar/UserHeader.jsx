@@ -1,10 +1,8 @@
-
-import PatientPhoto from '../../../assets/userphoto.png';
-import { useState, useEffect } from 'react';
-
+import PatientPhoto from "../../../assets/userphoto.png";
+import { useState, useEffect } from "react";
 
 const UserHeader = () => {
-  const [greeting, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState("");
   const [userName, setUserName] = useState(null);
   const [loginTime, setLoginTime] = useState(null);
 
@@ -27,33 +25,36 @@ const UserHeader = () => {
     // Determine the greeting based on the time of day
     const currentHour = new Date().getHours();
     if (currentHour >= 5 && currentHour < 12) {
-      setGreeting('Good morning');
+      setGreeting("Good morning");
     } else if (currentHour >= 12 && currentHour < 18) {
-      setGreeting('Good afternoon');
+      setGreeting("Good afternoon");
     } else {
-      setGreeting('Good evening');
+      setGreeting("Good evening");
     }
   }, []);
 
   console.log("Render Name:", userName);
 
   // Format the date as day month year: 24 Nov 2023
-  const formattedDate = loginTime && loginTime.toLocaleString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
+  const formattedDate =
+    loginTime &&
+    loginTime.toLocaleString("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    });
 
   return (
     <div className="flex patient-bg w-full h-[130px] pt-10 px-4">
       <div className="flex justify-between ml-8">
         <img src={PatientPhoto} alt="Icon" className="w-20 h-20" />
         <div className="flex-col pt-3 ml-3">
-          <span className="">{greeting}, {userName || "GUEST"}!</span>
+          <span className="">
+            {greeting}, {userName || "GUEST"}!
+          </span>
           <p className="">{formattedDate}</p>
         </div>
       </div>
-   
     </div>
   );
 };

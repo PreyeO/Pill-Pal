@@ -1,5 +1,3 @@
-
-
 const SelectInput = ({
   placeholder,
   type,
@@ -8,19 +6,8 @@ const SelectInput = ({
   onChange,
   value,
   required,
-  unitOptions
+  unitOptions,
 }) => {
-
-
-//   const unitOptions = [
-//     "Tablet",
-//     "Capsule",
-//     "(ml)",
-//     "(tsp)",
-//     "(tbsp)",
-//     "(mg)",
-//     "(g)",
-//   ];
   return (
     <div>
       <label className="text-sm text-[#323C45]" htmlFor={id}>
@@ -38,10 +25,10 @@ const SelectInput = ({
         required={required}
       >
         <option value="" disabled>
-        {placeholder}
+          {placeholder}
         </option>
         {unitOptions.map((option) => (
-         <option key={option} value={option}>
+          <option key={option} value={option}>
             {option}
           </option>
         ))}

@@ -13,7 +13,6 @@ const EmptyPatientDashboard = () => {
           <div className="">
             <UserHeader />
           </div>
-       
 
           <div className=" justify-evenly max-auto mt-12 lg:flex hidden">
             <div className="flex-col">
@@ -28,12 +27,12 @@ const EmptyPatientDashboard = () => {
                   You don’t have any medications.
                 </h1>
                 <Link to="/medinfo">
-                <button
-                  type="submit"
-                  className="bg-[#55AAFF] h-[55px] w-full rounded-md mt-4"
-                >
-                  Add Medication{" "}
-                </button>
+                  <button
+                    type="submit"
+                    className="bg-[#55AAFF] h-[55px] w-full rounded-md mt-4"
+                  >
+                    Add Medication{" "}
+                  </button>
                 </Link>
               </div>
             </div>
@@ -69,14 +68,16 @@ const EmptyPatientDashboard = () => {
           <div className="shadow-xl mx-2 w-[221px] h-[100px] bg-white flex px-4 pt-2">
             <div className="flex-col">
               <img src={weight} alt="hospital building" />
-              <p >You haven’t added any medications</p>
+              <p>You haven’t added any medications</p>
             </div>
           </div>
           <div className="h-[100px] w-[150px] bg-white flex flex-col justify-center items-center mx-2">
             <h6 className="text-sm">Add medication</h6>
             <div>
-              <Link to="/medinfo"><button className='bg-[#55AAFF] w-[70px] h-[30px]'>+</button></Link>
-              </div>
+              <Link to="/medinfo">
+                <button className="bg-[#55AAFF] w-[70px] h-[30px]">+</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -92,7 +93,10 @@ const EmptyPatientDashboard = () => {
         <h3>Schedule</h3>
       </div>
       <div className="flex flex-col w-full bg-white h-[120px] px-4 pt-6 shadow-xl ">
-        <input type="date" className="bg-black h-7 text-white rounded-full text-center w-[150px]" />
+        <input
+          type="date"
+          className="bg-black h-7 text-white rounded-full text-center w-[150px]"
+        />
         <p className="text-center pt-7">There’s nothing on your schedule</p>
       </div>
     </section>

@@ -5,8 +5,7 @@ import Logo from "../../../assets/Logo.svg";
 import MenuLine from "../../../assets/Menuline.svg";
 import meds from "../../../assets/meds.png";
 import clock from "../../../assets/clock.png";
-// import ManagementIcon from '@/assets/Icon/Menu/file-chart.png';
-// import Logout from '@/assets/Icon/Menu/logout.png';
+
 import Settings from "../../../assets/settings.png";
 
 import { useLocation } from "react-router-dom";
@@ -16,12 +15,14 @@ const Sidebar = () => {
 
   return (
     <div className="bg-white w-[203px] h-auto pt-7 px-3 font-medium hidden lg:block">
-      <div className="flex justify-center gap-2 mt-8">
-        <img src={Logo} alt="logo" className="w-[48px] h-[48px]" />
-        <h2 className="pt-3">
-          Pill<span className="text-[#55AAFF]">Pal</span>
-        </h2>
-      </div>
+      <Link to="/">
+        <div className="flex justify-center gap-2 mt-8">
+          <img src={Logo} alt="logo" className="w-[48px] h-[48px]" />
+          <h2 className="pt-3">
+            Pill<span className="text-[#55AAFF]">Pal</span>
+          </h2>
+        </div>
+      </Link>
 
       {/* Sidebar header */}
       <div className="p-4">
@@ -62,14 +63,33 @@ const Sidebar = () => {
               <h1 className="text-lg">Meds</h1>
             </Link>
           </li>
-          <li className="flex gap-3 px-8 items-center">
-            <img src={UsersRecord} alt="logo" />
-            <h1 className="text-lg">Records</h1>
+
+          <li className="">
+            <Link
+              to="/fullrecordlist"
+              className={`flex gap-3 px-8 items-center ${
+                location.pathname === "/fullrecordlist"
+                  ? "active-link"
+                  : "text-[#686666]"
+              }`}
+            >
+              <img src={UsersRecord} alt="logo" />
+              <h1 className="text-lg">Records</h1>
+            </Link>
           </li>
 
-          <li className="flex gap-3 px-8 items-center">
-            <img src={clock} alt="logo" />
-            <h1 className="text-lg">Schedule</h1>
+          <li className="">
+            <Link
+              to="/fullschedules"
+              className={`flex gap-3 px-8 items-center ${
+                location.pathname === "/fullschedules"
+                  ? "active-link"
+                  : "text-[#686666]"
+              }`}
+            >
+              <img src={clock} alt="logo" />
+              <h1 className="text-lg">Schedule</h1>
+            </Link>
           </li>
 
           <li className="flex gap-3 px-8 items-center">

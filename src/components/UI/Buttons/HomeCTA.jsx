@@ -1,4 +1,4 @@
-const HomeCTA = ({ label, background, color, src, type }) => {
+const HomeCTA = ({ label, background, color, type }) => {
   return (
     <button
       className="rounded-md p-2  w-[225px] h-[60px] flex gap-2 justify-center items-center"
@@ -8,7 +8,7 @@ const HomeCTA = ({ label, background, color, src, type }) => {
         color: color,
       }}
     >
-      <img src={src} alt="userIcon" className="" />
+    
       {label}
     </button>
   );

@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import Login from "./Pages/Login";
 import EmptyUser from "./Pages/UserAccount/EmptyUser";
 import MedInfo from "./Pages/UserAccount/MedInfo";
+import FullSchedules from "./Pages/UserAccount/FullSchedules";
+import FullRecordList from "./Pages/UserAccount/FullRecordList";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
           <Route path="/userdashboard" element={<UserDashboard />} />
           <Route path="/emptyuser" element={<EmptyUser/>} />
           <Route path="/medinfo" element={<MedInfo/>} />
+          <Route path="/fullschedules" element={<FullSchedules/>} />
+          <Route path="/fullrecordlist" element={<FullRecordList/>} />
           {/* <Route path="/management" element={<Management />} /> */}
           </Routes>
           </BrowserRouter>
