@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <section className="flex flex-col justify-center lg:mt-[9rem] mt-[4rem] w-full">
       <div className="flex justify-evenly ">
-        <div className="flex flex-col gap-5 lg:gap-10 mt-[5rem] justify-center lg:justify-start lg:items-start items-center lg:text-left text-center">
+        <div className="flex flex-col gap-5 lg:gap-10 mt-[3rem] justify-center lg:justify-start lg:items-start items-center lg:text-left text-center">
           <div className="md:w-[600px] w-[300px]">
             <MainTitle title="Embark on a journey with PillPal—Shaping Tomorrow, Today!" />
           </div>
