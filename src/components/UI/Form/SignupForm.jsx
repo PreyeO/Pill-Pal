@@ -52,6 +52,7 @@ const SignupForm = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         required
+        className="w-full"
       />
       <TextInput
         placeholder="Enter your email"
@@ -60,6 +61,7 @@ const SignupForm = () => {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
+        className="w-full"
       />
       <TextInput
         placeholder="Enter your password"
@@ -68,6 +70,7 @@ const SignupForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
+        className="w-full"
       />
       <TextInput
         placeholder="password"
@@ -76,6 +79,7 @@ const SignupForm = () => {
         value={password_confirmation}
         onChange={(e) => setPassword_confirmation(e.target.value)}
         required
+        className="w-full"
       />
       <div className="md:pt-4 pt-2">
         <Checkbox label="Agree to Terms and Policy" />
