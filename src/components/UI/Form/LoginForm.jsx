@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TextInput from "../Inputs/TextInput";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
@@ -15,26 +15,23 @@ const LoginForm = () => {
     const loginData = { email, password };
 
     try {
-      const response = await fetch(
-        "https://pillpal-api.pouletmedia.ng/api/login",
-        {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(loginData),
-        }
-      );
-
+      const response = await fetch("https://pillpal-api.pouletmedia.ng/api/login", {
+        method: "POST",
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(loginData)
+      });
+  
       if (response.ok) {
         const { token, user } = await response.json();
-
+  
         localStorage.setItem("userToken", token);
         localStorage.setItem("userName", user.name);
-
-        toast.success("Login successfully");
+  
+        toast.success('Login successfully');
         setTimeout(() => {
           // Check if the user has the role of an administrator
-          const isAdmin = user.roles.some((role) => role.slug === "admin");
-
+          const isAdmin = user.roles.some(role => role.slug === 'admin');
+        
           if (isAdmin) {
             navigate("/providerdashboard");
           } else {
@@ -70,10 +67,7 @@ const LoginForm = () => {
         required
       />
       <div className="mt-4">
-        <button
-          type="submit"
-          className="bg-[#55AAFF] h-[55px] w-full rounded-md"
-        >
+        <button type="submit" className="bg-[#55AAFF] h-[55px] w-full rounded-md">
           Login
         </button>
       </div>
