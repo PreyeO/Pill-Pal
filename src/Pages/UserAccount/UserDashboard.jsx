@@ -1,17 +1,11 @@
-import Patient from "../../components/Layouts/DashBoard/Patient"
+import Patient from "../../components/Layouts/DashBoard/Patient";
 
-const UserDashboard =() => {
+const UserDashboard = () => {
+  return (
+    <main className=" font-OpenSans">
+      <Patient />
+    </main>
+  );
+};
 
-
-
-    return(
-        <main className=" font-OpenSans">
-          
-       
-   
-         <Patient />
-        </main>
-    )
-}
-
-export default UserDashboard
+export default UserDashboard;

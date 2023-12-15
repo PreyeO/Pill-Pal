@@ -31,7 +31,7 @@ const Patient = () => {
   }, []);
 
   return (
-    <section className="flex-col justify-center items-center min-h-section text-black bg-[#E8E8E8]">
+    <section className="flex-col justify-center items-center min-h-[100vh] text-black bg-[#E8E8E8]">
       <div className="flex">
         <SideBar />
         <div className="flex-col lg:mx-auto w-full ">
