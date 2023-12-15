@@ -7,6 +7,7 @@ const SelectInput = ({
   value,
   required,
   unitOptions,
+  className,
 }) => {
   return (
     <div>
@@ -15,8 +16,8 @@ const SelectInput = ({
       </label>
       <br />
       <select
-        className="w-full h-12 px-3 mt-2 text-sm text-gray-700 placeholder-gray-400 border 
-     rounded-sm inputs "
+        className={`${className}  h-12 px-3 mt-2 text-sm text-gray-700 placeholder-gray-400 border 
+      rounded-sm inputs `}
         type={type}
         placeholder={placeholder}
         id={id}

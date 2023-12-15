@@ -87,7 +87,7 @@ const MedForm = () => {
 
   return (
     <form
-      className="flex flex-col mx-auto mt-4 gap-6 "
+      className="flex flex-col mx-auto mt-4 gap-6 w-[50%]"
       onSubmit={handleSubmitBtn}
     >
       <TextInput
@@ -97,9 +97,10 @@ const MedForm = () => {
         required
         value={medication_name}
         onChange={(e) => setMedication_name(e.target.value)}
+        className="w-full"
       />
 
-      <div className="flex gap-3 text-center">
+      <div className="flex justify-evenly text-center">
         <TextInput
           placeholder="Dosage"
           type="number"
@@ -107,6 +108,7 @@ const MedForm = () => {
           required
           value={dosage}
           onChange={(e) => setDosage(e.target.value)}
+          className=" w-[370px]"
         />
         <SelectInput
           placeholder="Enter Unit/dosage"
@@ -116,6 +118,7 @@ const MedForm = () => {
           value={unit}
           onChange={(e) => setUnit(e.target.value)}
           unitOptions={unitOptions1}
+          className="w-[370px]"
         />
       </div>
       <div className=" flex justify-between text-center">
@@ -126,6 +129,7 @@ const MedForm = () => {
           required
           value={medication_time}
           onChange={(e) => setMedication_time(e.target.value)}
+          className="w-[370px]"
         />
 
         <SelectInput
@@ -136,6 +140,7 @@ const MedForm = () => {
           value={medication_cycle}
           onChange={(e) => setMedication_cycle(e.target.value)}
           unitOptions={unitOptions2}
+          className="w-[370px]"
         />
       </div>
       <div className="flex justify-between text-center">
@@ -146,6 +151,7 @@ const MedForm = () => {
           required
           value={start_date}
           onChange={(e) => setStart_date(e.target.value)}
+          className="w-[370px]"
         />
         <TextInput
           placeholder="Enter end date"
@@ -154,6 +160,7 @@ const MedForm = () => {
           required
           value={end_date}
           onChange={(e) => setEnd_date(e.target.value)}
+          className="w-[370px]"
         />
       </div>
 
@@ -165,6 +172,7 @@ const MedForm = () => {
           required
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          className="w-[370px]"
         />
 
         <div className="flex items-center">
