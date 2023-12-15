@@ -133,7 +133,11 @@ const Patient = () => {
           </Link>
         </div>
         <div className=" shadow-xl mx-2">
-          {isLoading ? <p>Loading...</p> : <UserSchedules fullList={true} />}
+          {isLoading ? (
+            <div className="loader"></div>
+          ) : (
+            <UserSchedules fullList={true} />
+          )}
         </div>
         <div className="flex justify-between pt-6 px-4 font-bold">
           <h3 className="">Health Activity</h3>
