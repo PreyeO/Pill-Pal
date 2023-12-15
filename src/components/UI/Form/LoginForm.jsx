@@ -38,7 +38,7 @@ const LoginForm = () => {
           if (isAdmin) {
             navigate("/providerdashboard");
           } else {
-            navigate("/userdashboard");
+            navigate("/emptyuser");
           }
         }, 600);
       } else {
