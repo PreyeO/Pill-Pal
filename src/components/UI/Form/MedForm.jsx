@@ -90,36 +90,42 @@ const MedForm = () => {
       className="flex flex-col mx-auto mt-4 gap-6 w-[50%]"
       onSubmit={handleSubmitBtn}
     >
-      <TextInput
-        placeholder="Enter medication name"
-        type="text"
-        label="Med name"
-        required
-        value={medication_name}
-        onChange={(e) => setMedication_name(e.target.value)}
-        className="w-full"
-      />
-
-      <div className="flex justify-evenly text-center">
+      <div className=" ">
         <TextInput
-          placeholder="Dosage"
-          type="number"
-          label="Enter dosage"
-          required
-          value={dosage}
-          onChange={(e) => setDosage(e.target.value)}
-          className=" w-[370px]"
-        />
-        <SelectInput
-          placeholder="Enter Unit/dosage"
+          placeholder="Enter medication name"
           type="text"
-          label="Unit"
+          label="Med name"
           required
-          value={unit}
-          onChange={(e) => setUnit(e.target.value)}
-          unitOptions={unitOptions1}
-          className="w-[370px]"
+          value={medication_name}
+          onChange={(e) => setMedication_name(e.target.value)}
+          className="w-full "
         />
+      </div>
+
+      <div className="flex justify-between text-center">
+        <div>
+          <TextInput
+            placeholder="Dosage"
+            type="number"
+            label="Enter dosage"
+            required
+            value={dosage}
+            onChange={(e) => setDosage(e.target.value)}
+            className=" w-[370px]"
+          />
+        </div>
+        <div className="">
+          <SelectInput
+            placeholder="Enter Unit/dosage"
+            type="text"
+            label="Unit"
+            required
+            value={unit}
+            onChange={(e) => setUnit(e.target.value)}
+            unitOptions={unitOptions1}
+            className="w-[370px] "
+          />
+        </div>
       </div>
       <div className=" flex justify-between text-center">
         <TextInput

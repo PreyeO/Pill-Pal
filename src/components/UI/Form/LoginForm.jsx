@@ -9,6 +9,31 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const fetchUserSchedule = async (token) => {
+    try {
+      const response = await fetch(
+        "https://pillpal-api.pouletmedia.ng/api/mySchedule",
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        const errorData = await response.json();
+        throw new Error(`Failed to fetch schedule: ${errorData.message}`);
+      }
+    } catch (error) {
+      console.error(error);
+      throw new Error(`Failed to fetch schedule: ${error.message}`);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,16 +56,32 @@ const LoginForm = () => {
         localStorage.setItem("userName", user.name);
 
         toast.success("Login successfully");
-        setTimeout(() => {
-          // Check if the user has the role of an administrator
-          const isAdmin = user.roles.some((role) => role.slug === "admin");
 
-          if (isAdmin) {
-            navigate("/providerdashboard");
-          } else {
-            navigate("/emptyuser");
+        // Check if the user has the role of an administrator
+        const isAdmin = user.roles.some((role) => role.slug === "admin");
+
+        if (isAdmin) {
+          navigate("/providerdashboard");
+        } else {
+          // Fetch the user's schedule separately
+          try {
+            const scheduleData = await fetchUserSchedule(token);
+
+            // Check if the user has a schedule
+            const hasSchedule = scheduleData && scheduleData.length > 0;
+
+            if (hasSchedule) {
+              // Redirect to "/userdashboard" immediately if there's a schedule
+              navigate("/userdashboard");
+            } else {
+              // Redirect to "/emptyuser" if there's no schedule
+              navigate("/emptyuser");
+            }
+          } catch (scheduleError) {
+            console.error(scheduleError);
+            toast.error(scheduleError.message);
           }
-        }, 600);
+        }
       } else {
         const errorData = await response.json();
         toast.error(`Failed: ${errorData.message}`);
@@ -50,7 +91,6 @@ const LoginForm = () => {
       toast.error(`Failed: ${err.message}`);
     }
   };
-
   return (
     <form className="flex flex-col md:gap-5 gap-3" onSubmit={handleSubmit}>
       <TextInput
